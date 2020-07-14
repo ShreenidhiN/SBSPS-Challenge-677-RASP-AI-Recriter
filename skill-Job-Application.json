@@ -1,0 +1,597 @@
+{
+  "intents": [
+    {
+      "intent": "Name",
+      "examples": [],
+      "description": ""
+    },
+    {
+      "intent": "Gender",
+      "examples": [
+        {
+          "text": "Male"
+        },
+        {
+          "text": "Female"
+        },
+        {
+          "text": "Other"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Skills",
+      "examples": [
+        {
+          "text": "Web Development"
+        },
+        {
+          "text": "Python"
+        },
+        {
+          "text": "Data Science"
+        },
+        {
+          "text": "Cloud"
+        },
+        {
+          "text": "Software"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Greetings",
+      "examples": [
+        {
+          "text": "hi"
+        },
+        {
+          "text": "hello"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "sys-date",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "Name",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Rooban Sappani",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Pavithra S",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Abhirami M",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Shreenidhi N",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "Gender",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Male",
+          "synonyms": [
+            "M"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Other",
+          "synonyms": [
+            "O"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Female",
+          "synonyms": [
+            "F"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "email",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "a@gmai.com",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "r@gmail.com",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "s@gmail.com",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "p@gmail.com",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "Hello",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "cool",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "Skills",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Software",
+          "synonyms": [
+            "SW"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Data Science",
+          "synonyms": [
+            "DS"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Cloud",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Python",
+          "synonyms": [
+            "Py"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Web Development",
+          "synonyms": [
+            "Web Dev"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "Greetings",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "hi",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "hello",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "slot",
+      "parent": "node_2_1592142569662",
+      "variable": "$Name",
+      "dialog_node": "slot_4_1592142598586",
+      "previous_sibling": "handler_1_1592142596050"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": ""
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1592142569662",
+      "event_name": "focus",
+      "dialog_node": "handler_1_1592142596050"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Enter your name"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_4_1592142598586",
+      "event_name": "focus",
+      "dialog_node": "handler_8_1592142598600",
+      "previous_sibling": "handler_6_1592142598600"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_4_1592142598586",
+      "context": {
+        "Name": "@Name"
+      },
+      "conditions": "@Name",
+      "event_name": "input",
+      "dialog_node": "handler_6_1592142598600"
+    },
+    {
+      "type": "standard",
+      "title": "Delete",
+      "output": {
+        "deleted": "<?context.remove('Name')?><?context.remove('date')?><?context.remove('Gender')?><?context.remove('email')?>",
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1592665377034",
+      "conditions": "true",
+      "dialog_node": "node_9_1592665413599"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Enter your date of birth"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_7_1592144000122",
+      "event_name": "focus",
+      "dialog_node": "handler_5_1592144000143",
+      "previous_sibling": "handler_9_1592144000143"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_7_1592144000122",
+      "context": {
+        "date": "@sys-date"
+      },
+      "conditions": "@sys-date",
+      "event_name": "input",
+      "dialog_node": "handler_9_1592144000143"
+    },
+    {
+      "type": "slot",
+      "parent": "node_8_1592143887936",
+      "variable": "$date",
+      "dialog_node": "slot_7_1592144000122",
+      "previous_sibling": "handler_2_1592143997459"
+    },
+    {
+      "type": "event_handler",
+      "parent": "node_8_1592143887936",
+      "event_name": "focus",
+      "dialog_node": "handler_2_1592143997459"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Enter your email id"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_9_1592666522834",
+      "event_name": "focus",
+      "dialog_node": "handler_7_1592666522885",
+      "previous_sibling": "handler_3_1592666522885"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_9_1592666522834",
+      "context": {
+        "email": "@email"
+      },
+      "conditions": "@email",
+      "event_name": "input",
+      "dialog_node": "handler_3_1592666522885"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Enter your gender"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_2_1592145108769",
+      "event_name": "focus",
+      "dialog_node": "handler_7_1592145108802",
+      "previous_sibling": "handler_10_1592145108802"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_2_1592145108769",
+      "context": {
+        "Gender": "@Gender"
+      },
+      "conditions": "@Gender",
+      "event_name": "input",
+      "dialog_node": "handler_10_1592145108802"
+    },
+    {
+      "type": "slot",
+      "parent": "node_2_1592666488068",
+      "variable": "$email",
+      "dialog_node": "slot_9_1592666522834",
+      "previous_sibling": "handler_1_1592666521519"
+    },
+    {
+      "type": "event_handler",
+      "parent": "node_2_1592666488068",
+      "event_name": "focus",
+      "dialog_node": "handler_1_1592666521519"
+    },
+    {
+      "type": "slot",
+      "parent": "node_7_1592144527014",
+      "variable": "$Gender",
+      "dialog_node": "slot_2_1592145108769",
+      "previous_sibling": "handler_1_1592145106646"
+    },
+    {
+      "type": "event_handler",
+      "parent": "node_7_1592144527014",
+      "event_name": "focus",
+      "dialog_node": "handler_1_1592145106646"
+    },
+    {
+      "type": "frame",
+      "title": "Date of Birth",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Enter your gender"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "@sys-date",
+      "dialog_node": "node_8_1592143887936",
+      "previous_sibling": "node_2_1592142569662"
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_3_1592665377034",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "frame",
+      "title": "Name",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Enter your date of birth"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "@Name",
+      "dialog_node": "node_2_1592142569662",
+      "previous_sibling": "node_7_1592142715812"
+    },
+    {
+      "type": "standard",
+      "title": "Greetings",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hey hello enter your name"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Greetings",
+      "dialog_node": "node_7_1592142715812",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "frame",
+      "title": "Gender",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Enter your email id"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Gender || @Gender",
+      "dialog_node": "node_7_1592144527014",
+      "previous_sibling": "node_8_1592143887936"
+    },
+    {
+      "type": "standard",
+      "title": "Done",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Application Submitted"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "@Hello",
+      "dialog_node": "node_3_1592665377034",
+      "previous_sibling": "node_2_1592666488068"
+    },
+    {
+      "type": "frame",
+      "title": "Email",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Click on the submit application button to go the next page"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "@email",
+      "dialog_node": "node_2_1592666488068",
+      "previous_sibling": "node_7_1592144527014"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello. I'm here to help you apply for the job."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "Job Application",
+  "language": "en",
+  "description": ""
+}

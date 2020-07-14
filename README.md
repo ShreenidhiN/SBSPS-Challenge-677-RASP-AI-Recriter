@@ -24,4 +24,6 @@ Step 6: Inject the timestamps in the Answers_FLOW.json file in order to store th
 
 Step 7: Inject the first timestamp in the UI_FLOW.json file. 
 
-Step 8: Flollow the steps in the demo.mp4
+Step 8: Follow the steps in the demo video.
+
+DEMO VIDEO: https://drive.google.com/file/d/1DELUnNKxBR_ybHWb8WXdWYQ_O6bF32mz/view?usp=sharing
